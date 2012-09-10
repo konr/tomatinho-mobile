@@ -1,3 +1,5 @@
 *.jar
 .lein-plugins
 .lein-*
+out/
+lib/
