@@ -1,18 +1,14 @@
 (ns tomatinho.main
-  (:use [jayq.core :only [$ append delegate data]])
+  (:use [jayq.core :only [$ append delegate data inner]])
   (:require [clojure.browser.repl :as repl]))
 
-(defn ^:export connect []
-  (repl/connect "http://localhost:9000/repl")
+(def $content
+  #_($ :#content)
+  (js/jQuery "#content")
   )
-
-(defn ^:export alerta []
-  (js/alert "Olá, mundo!"))
 
 (defn ^:export main []
+  (repl/connect "http://localhost:9000/repl")
+  (-> (js/jQuery "#content") (jayq.core/append "foobar ")))
 
-(js/alert "oi")
-  )
-(alerta)
-(connect)
-
+(main)
