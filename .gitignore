@@ -1,2 +1,3 @@
 *.jar
 .lein-plugins
+.lein-*
