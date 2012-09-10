@@ -18016,9 +18016,22 @@ jayq.core.prevent = function(a) {
 };
 var tomatinho = {main:{}};
 tomatinho.main.$content = jQuery("#content");
+tomatinho.main.log = function(a) {
+  return console.log(a)
+};
+goog.exportSymbol("tomatinho.main.log", tomatinho.main.log);
 tomatinho.main.main = function() {
+  tomatinho.main.log.call(null, "Starting the App");
   clojure.browser.repl.connect.call(null, "http://localhost:9000/repl");
-  return jayq.core.append.call(null, jQuery("#content"), "foobar ")
+  for(var a = 0;;) {
+    if(100 > a) {
+      tomatinho.main.mess_up.call(null), a += 1
+    }else {
+      return null
+    }
+  }
 };
 goog.exportSymbol("tomatinho.main.main", tomatinho.main.main);
-tomatinho.main.main.call(null);
+tomatinho.main.mess_up = function() {
+  return jayq.core.append.call(null, jQuery("#content"), "foobar ")
+};

@@ -12,8 +12,8 @@
      (include-js "https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js")
      ]
     [:body
+     [:div {:id "content"}]
      (javascript-tag "var CLOSURE_NO_DEPS = true;")
      (include-js "/js/main.js")
-     
-     [:p "teste" ]
-      [:div {:id "content"}]]))
+     (javascript-tag "$(document).ready(tomatinho.main.main);")
+     ]))

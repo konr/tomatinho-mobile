@@ -7,8 +7,14 @@
   (js/jQuery "#content")
   )
 
-(defn ^:export main []
-  (repl/connect "http://localhost:9000/repl")
-  (-> (js/jQuery "#content") (jayq.core/append "foobar ")))
+(defn ^:export log [text]
+  (.log js/console text))
 
-(main)
+(defn ^:export main []
+  (log "Starting the App")
+  (repl/connect "http://localhost:9000/repl")
+  (dotimes [n 100] (mess-up)))
+
+
+(defn mess-up []
+  (-> (js/jQuery "#content") (jayq.core/append "foobar ")))
