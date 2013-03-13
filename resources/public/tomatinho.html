@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <style type="text/css">
+      body{
+      background: url("img/sneaker_mesh_fabric.png");
+      font-family: monospace;
+      }
+      #title{
+      background-color: rgba(100,0,0,0.9);
+      color: white;
+      margin: 0;
+      padding: 1em;
+      display: block;
+      }
+      #info{
+      float: right;
+      width: 300px;
+      }
+      #date h1{
+      font-size: 5cm
+      }
+
+      li.pomodoro{
+      color: red;
+      }
+
+      li.pause{
+      color: green;
+      }
+
+      li.pomodoro:before,
+      li.gave-up:before
+      {
+      background-color: "green";
+      content: " ";
+      display: block;
+      margin-top: 1px;
+      }
+      li{
+      display: inline;
+      }
+      #menu li{
+      color: white;
+      background-color: rgba(0,0,0,0.5);
+
+      }
+      #menu li.selected{
+      background-color: rgba(0,0,0,0.9);
+
+      }
+    </style>
+    <title>tomatinho</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  </head>
+  <body>
+    <div id="info">
+      <h1 id="title">Tomatinho</h1>
+      <div>
+        <p>
+          a <b>simple and beautiful</b> pomodoro technique timer that is not bloated
+          with distractive graphics or inorganic commands. </p>
+        <p>Just press Enter, see time flow and do you best.
+        </p>
+      </div>
+      <hr>
+      <ul id="menu">
+        <li class="selected">Commands</li>
+        <li>History</li>
+        <li>Settings</li>
+      </ul>
+    </div>
+    <div id="canvas">
+      <div id="date"></div>
+      <div>
+        <h2>Past days</h2>
+        83 pomodoros (16/day). Got accomplished:
+        <ul>
+          <li>Colocar-me nos eventos<br></li>
+          <li>Aprender a usar o ClojureScript<br></li>
+          <li>Botar discussão na wiki<br></li>
+          <li>Elaborar plano pro troço de estacionamento<br></li>
+        </ul>
+        <h2>Today</h2>
+	No goal set.<br>
+	Go on, the game is up!
+        <ul id="pomodoros"></ul>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/tomatinho_dev.js"></script>
+  <script>
+    tomatinho_mobile.core.init();
+  </script>
+</html>

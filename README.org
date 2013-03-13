@@ -1,8 +1,3 @@
-* Toma-what?
+* Toma-what
 
-  Some time ago I wrote [[https://github.com/konr/tomatinho][Tomatinho]], a [[http://www.pomodorotechnique.com/][pomodoro technique]] timer that
-  addresses the stressful and cheating-prone workflow of previous
-  timers. This will be the mobile version of it, written in 
-  ClojureScript.
-
-
+  Tomatinho! Now 
