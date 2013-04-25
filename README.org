@@ -1,3 +1,10 @@
-* Toma-what
+* Toma-what?
 
   Tomatinho! Now 
+  
+* To be done
+
+ - [ ] Fast clicks! The UI can be turned more responsive without the
+   nasty 300ms of wait, as in
+   https://developers.google.com/mobile/articles/fast_buttons
+   

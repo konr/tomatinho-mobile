@@ -10,11 +10,11 @@
                  [domina "1.0.2-SNAPSHOT"]
                  [tailrecursion/javelin "1.0.0-SNAPSHOT"]
                  [hiccups "0.2.0"]
-                 [swiss-arrows "0.5.1"]
                  [shoreleave/shoreleave-remote-ring "0.3.0"]
                  [shoreleave/shoreleave-remote "0.3.0"]
                  [shoreleave/shoreleave-browser "0.3.0"]
                  [com.cemerick/valip "0.3.2"]
+                 [jayq "2.3.0"]
                  [compojure "1.1.5"]]
 
 
@@ -24,11 +24,13 @@
 
   :ring {:handler tomatinho.server/handler}
 
-  :cljsbuild {:crossovers [swiss-arrows.core]
-              :builds {:dev {:source-paths ["src/cljs"]
+  ;; CLJS
+  :cljsbuild {:builds {:dev {:source-paths ["src/cljs"]
                              :compiler {:output-to "resources/public/js/tomatinho_dev.js"
                                         :optimizations :whitespace
                                         :pretty-print true}}
                        :prod {:source-paths ["src/cljs"]
                               :compiler {:output-to "resources/public/js/tomatinho.js"
-                                         :optimizations :advanced}}}})
+                                         #_:externs #_["resources/public/externs/jquery-1.8.2.min.js"
+                                                   "resources/public/externs/jquery.mobile-1.3.0.min.js"]
+                                         :optimizations :simple}}}})

@@ -1,0 +1,9 @@
+# view AndroidManifest.xml #generated:41
+-keep class com.tomatinho_mobile.AcraStuff { <init>(...); }
+
+# view AndroidManifest.xml #generated:52
+-keep class com.tomatinho_mobile.Tomatinho_mobileActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:45
+-keep class org.acra.CrashReportDialog { <init>(...); }
+

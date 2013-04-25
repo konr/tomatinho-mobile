@@ -1,0 +1,318 @@
+<html>
+  <head>
+    <script src="externs/jquery-1.8.2.min.js"></script>
+    <script src="externs/jquery.mobile-1.3.0.min.js"></script>
+    <script src="externs/cordova-2.5.0.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile.theme-1.3.0.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0.min.css" />
+    <style type="text/css">
+
+      /* http://stackoverflow.com/questions/13986182/how-can-i-improve-the-page-transitions-for-my-jquery-mobile-app/13986390 */
+
+      .ui-page { -webkit-backface-visibility: hidden; }
+
+      /* ---------- */
+
+      div.pomodoro-wrapper{
+      margin-left: 1em;
+      margin-right: 1em;
+      color: black;
+      padding: 0px;
+      }
+
+      div.history{
+      margin-bottom: 1em;
+
+      }
+
+      div.pause{
+      color: green;
+      }
+
+      div.pomodoro:before,
+      div.gave-up:before
+      {
+      background-color: "green";
+      content: " ";
+      display: block;
+      margin-top: 1px;
+      }
+      #current-time{
+      text-align:center;
+      font-size: large;
+      }
+      div[data-role=header]{
+      background-color: red;
+      }
+      h1,h2{
+      margin: 0;
+      }
+
+      table.range thead th,
+      #review thead th,
+      #day-plan thead th {
+      border-bottom: 1px solid red;
+      }
+
+      table.range tbody td,
+      #review tbody td,
+      #day-plan tbody th,
+      #day-plan tbody td {
+      border: 1px solid #ccc;
+      }
+
+      #review,
+      table.range,
+      #day-plan{
+      width: 100%;
+      border-collapse: collapse;
+      }
+
+      #day-plan .hour{
+      color: red;
+      font-size: 2em;
+      width: 20px;
+      padding: 0.5em;
+      }
+
+      #day-plan td{
+      height: 50px;
+      width: 50%;
+      font-size: 1px;
+      }
+
+      #review td{
+      font-size: 1em;
+      padding: 0.5em 0.2em;
+      }
+
+      div.simple-list{
+      background-color: #9f9;
+      }
+
+      a.simple-list{
+      text-decoration: none;
+      color: #333 !important;
+      font-weight: normal !important;
+      }
+
+      .split-button-custom {
+      float: right;
+      margin-right: 10px;
+      margin-top: -32px;
+      border-bottom-left-radius: 1em 1em;
+      border-bottom-right-radius: 1em 1em;
+      border-top-left-radius: 1em 1em;
+      border-top-right-radius: 1em 1em;
+      }
+
+      .split-button-custom span.ui-btn-inner {
+      border-bottom-left-radius: 1em 1em;
+      border-bottom-right-radius: 1em 1em;
+      border-top-left-radius: 1em 1em;
+      border-top-right-radius: 1em 1em;
+      padding-right: 0px;
+      }
+
+      .split-button-custom span.ui-icon {
+      margin-top: 0px;
+      right: 0px;
+      top: 0px;
+      position: relative;
+      }
+
+      a.selected {
+      background-color: #999;
+
+      }
+
+      td.red{
+      width: 2%;
+      background-color: red;
+      }
+      td.green{
+      width: 2%;
+      background-color: green;
+      }
+
+      td.present{
+      background-color: red;
+      }
+
+      #day-plan td.current{
+      border: 3px dashed black;
+      }
+
+      td.sad{
+      background-color: #fcc;
+      }
+      td.happy{
+      background-color: #cfc;
+      }
+      td.normal{
+      background-color: #ddd;
+      }
+
+      #start-hour, #end-hour{
+      font-weight: bold;
+      }
+
+      table.range td.current{
+      background-color: #ccf;
+      }
+      table.range td.within{
+      background-color: #fdd;
+      }
+      table.range td.limit{
+      background-color: #faa;
+      }
+
+      ul.goal .text{
+      margin-right: 1.5em;
+      }
+
+
+      div.buttons {
+      text-align: center;
+      }
+    </style>
+    <title>tomatinho</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  </head>
+  <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
+  <meta name="viewport" content="width=device-width" />
+  <script type="text/javascript">
+    /* Android 2.x claims XPath support, but has none.  Force non-native
+    XPath implementation in this case */
+    if (document.implementation
+    && document.implementation.hasFeature
+    && document.implementation.hasFeature("XPath",null)
+    && !document.evaluate) {
+    window.jsxpath = {
+    targetFrame: undefined,
+    exportInstaller: false,
+    useNative: false, /* force non-native implementation */
+    useInnerText: true
+    };
+    }
+  </script>
+  <script type="text/javascript" src="externs/xpath.js"></script>
+</head>
+<body>
+
+  <div data-role="page" id="now">
+
+    <div data-role="navbar">
+
+      <ul>
+        <li><a href="#" class="button-now ui-btn-active">Now</a> </li>
+        <li><a href="#" class="button-agenda">Agenda</a></li>
+        <li><a href="#" class="button-archive">Archive</a></li>
+      </ul>
+    </div>
+
+    <div data-role="content">
+
+
+      <div id="canvas">
+        <div id="notification"></div>
+
+        <a data-role="button"><span id="current-time"></span></a>
+        <div class="simple-list">
+          <ul></ul>
+        </div>
+        <div id="pomodoros"></div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- ############################### -->
+
+  <div data-role="page" id="agenda">
+
+    <!-- <div data-role="header">
+         <h1>Tomatinho</h1>
+    </div> -->
+
+    <div data-role="navbar">
+      <ul>
+        <li><a href="#" class="button-now">Now</a> </li>
+        <li><a href="#" class="button-agenda ui-btn-active">Agenda</a></li>
+        <li><a href="#" class="button-archive">Archive</a></li>
+      </ul>
+    </div>
+    <div data-role="content">
+      <p>Today's goals
+        <div class="simple-list"><ul></ul></div>
+      </p>
+      <p>Today's resources
+        <ul style="background-color: #ccf" id="resources">
+          <li>Working from <span id="start-hour">12:00</span> to
+            <span id="end-hour">12:00</span></li>
+          <li>So far: <span id="pomodoro-count">0</span><img src="img/tomate.png" style="height: 1em"></li>
+          <li>Projected: <span id="pomodoro-max">0</span><img src="img/tomate.png" style="height: 1em"></li>
+        </ul>
+      </p>
+      <p>Work plan:</p>
+      <table id="day-plan">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Plan</th>
+            <th>Actual</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+
+
+</p>
+</div><!-- /content -->
+</div><!-- /page -->
+
+<!-- ############################### -->
+
+<div data-role="page" id="archive">
+
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#" class="button-now">Now</a> </li>
+      <li><a href="#" class="button-agenda">Agenda</a></li>
+      <li><a href="#" class="button-archive ui-btn-active">Archive</a></li>
+    </ul>
+  </div>
+
+  <div data-role="content">
+
+    <p>
+      Click on a day to see more statistics.
+    </p>
+
+    <table id="review">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Feeling</th>
+          <th>Periods</th>
+          <th>Goals</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <a data-role="button" id="forgo-reviews">Forgo and move on</a>
+  </div><!-- /content -->
+</div><!-- /page -->
+</body>
+<script type="text/javascript" src="js/tomatinho.js"></script>
+<script>
+  /*
+  $(document).on("mobileinit", function () {
+  $.mobile.defaultDialogTransition = "none";
+  $.mobile.defaultPageTransition = "none";
+  });
+  */
+</script>
+</html>
