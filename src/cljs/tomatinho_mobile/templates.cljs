@@ -130,13 +130,15 @@
          [:h3 "Pomodoros"]
          [:table
           [:tbody
-           (for [group (-> (aggregate-time-blocks history pomodoro-length 10) reverse rest)]
-             [:tr
-              [:td (format "%s:"
-                           (format-time (- (-> group last :end) (-> group last :duration)))
-                           (-> group first :end format-time))]
-              [:td (for [_ (-> group count range)]
-                     [:img {:src "img/tomate.png" :style "width: 1em"}])]])]]]))
+           (let [[h & t] (-> (aggregate-time-blocks history pomodoro-length 10) )
+                 h (filter #(-> % :kind (= :pomodoro)) h)]
+             (for [group (reverse (if (empty? h) t (conj t h)))]
+               [:tr
+                [:td (format "%s:"
+                             (format-time (- (-> group last :end) (-> group last :duration)))
+                             (-> group first :end format-time))]
+                [:td (for [_ (-> group count range)]
+                       [:img {:src "img/tomate.png" :style "width: 1em"}])]]))]]]))
 
 
 (defn archive-popup []

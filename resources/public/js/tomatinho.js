@@ -19743,28 +19743,35 @@ tomatinho.templates.info_popup = function(a, b) {
         return null
       }
     }, null)
-  }.call(null, e))), cljs.core.str("</ul>"), cljs.core.str("<h3>Pomodoros</h3>"), cljs.core.str("<table"), cljs.core.str(""), cljs.core.str(">"), cljs.core.str("<tbody"), cljs.core.str(""), cljs.core.str(">"), cljs.core.str(cljs.core.apply.call(null, cljs.core.str, function i(a) {
-    return new cljs.core.LazySeq(null, !1, function() {
-      for(;;) {
-        if(cljs.core.seq.call(null, a)) {
-          var b = cljs.core.first.call(null, a);
-          return cljs.core.cons.call(null, [cljs.core.str("<tr"), cljs.core.str(""), cljs.core.str(">"), cljs.core.str(function() {
-            var a = cljs.core.format.call(null, "%s:", tomatinho.utils.format_time.call(null, (new cljs.core.Keyword("\ufdd0'end")).call(null, cljs.core.last.call(null, b)) - (new cljs.core.Keyword("\ufdd0'duration")).call(null, cljs.core.last.call(null, b))), tomatinho.utils.format_time.call(null, (new cljs.core.Keyword("\ufdd0'end")).call(null, cljs.core.first.call(null, b))));
-            return cljs.core.map_QMARK_.call(null, a) ? [cljs.core.str("<td"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), a))), cljs.core.str(" />")].join("") : [cljs.core.str("<td>"), cljs.core.str(hiccups.runtime.render_html.call(null, a)), cljs.core.str("</td>")].join("")
-          }()), cljs.core.str("<td"), cljs.core.str(""), cljs.core.str(">"), cljs.core.str(cljs.core.apply.call(null, cljs.core.str, function() {
-            return function k(a) {
-              return new cljs.core.LazySeq(null, !1, function() {
-                for(;;) {
-                  return cljs.core.seq.call(null, a) ? (cljs.core.first.call(null, a), cljs.core.cons.call(null, "" + cljs.core.str('<img src="img/tomate.png" style="width: 1em" />'), k.call(null, cljs.core.rest.call(null, a)))) : null
-                }
-              }, null)
-            }.call(null, cljs.core.range.call(null, cljs.core.count.call(null, b)))
-          }())), cljs.core.str("</td>"), cljs.core.str("</tr>")].join(""), i.call(null, cljs.core.rest.call(null, a)))
+  }.call(null, e))), cljs.core.str("</ul>"), cljs.core.str("<h3>Pomodoros</h3>"), cljs.core.str("<table"), cljs.core.str(""), cljs.core.str(">"), cljs.core.str(function() {
+    var a, c = tomatinho.utils.aggregate_time_blocks.call(null, d, b, 10);
+    a = cljs.core.nth.call(null, c, 0, null);
+    c = cljs.core.nthnext.call(null, c, 1);
+    a = cljs.core.filter.call(null, function(a) {
+      return cljs.core._EQ_.call(null, (new cljs.core.Keyword("\ufdd0'kind")).call(null, a), "\ufdd0'pomodoro")
+    }, a);
+    a = function l(a) {
+      return new cljs.core.LazySeq(null, !1, function() {
+        for(;;) {
+          if(cljs.core.seq.call(null, a)) {
+            var b = cljs.core.first.call(null, a);
+            return cljs.core.cons.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0'tr", cljs.core.PersistentVector.fromArray(["\ufdd0'td", cljs.core.format.call(null, "%s:", tomatinho.utils.format_time.call(null, (new cljs.core.Keyword("\ufdd0'end")).call(null, cljs.core.last.call(null, b)) - (new cljs.core.Keyword("\ufdd0'duration")).call(null, cljs.core.last.call(null, b))), tomatinho.utils.format_time.call(null, (new cljs.core.Keyword("\ufdd0'end")).call(null, cljs.core.first.call(null, 
+            b))))], !0), cljs.core.PersistentVector.fromArray(["\ufdd0'td", function() {
+              return function p(a) {
+                return new cljs.core.LazySeq(null, !1, function() {
+                  for(;;) {
+                    return cljs.core.seq.call(null, a) ? (cljs.core.first.call(null, a), cljs.core.cons.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0'img", cljs.core.ObjMap.fromObject(["\ufdd0'src", "\ufdd0'style"], {"\ufdd0'src":"img/tomate.png", "\ufdd0'style":"width: 1em"})], !0), p.call(null, cljs.core.rest.call(null, a)))) : null
+                  }
+                }, null)
+              }.call(null, cljs.core.range.call(null, cljs.core.count.call(null, b)))
+            }()], !0)], !0), l.call(null, cljs.core.rest.call(null, a)))
+          }
+          return null
         }
-        return null
-      }
-    }, null)
-  }.call(null, cljs.core.rest.call(null, cljs.core.reverse.call(null, tomatinho.utils.aggregate_time_blocks.call(null, d, b, 10)))))), cljs.core.str("</tbody>"), cljs.core.str("</table>"), cljs.core.str("</div>")].join("")
+      }, null)
+    }.call(null, cljs.core.reverse.call(null, cljs.core.empty_QMARK_.call(null, a) ? c : cljs.core.conj.call(null, c, a)));
+    return cljs.core.map_QMARK_.call(null, a) ? [cljs.core.str("<tbody"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), a))), cljs.core.str(" />")].join("") : [cljs.core.str("<tbody>"), cljs.core.str(hiccups.runtime.render_html.call(null, a)), cljs.core.str("</tbody>")].join("")
+  }()), cljs.core.str("</table>"), cljs.core.str("</div>")].join("")
 };
 tomatinho.templates.archive_popup = function() {
   return[cljs.core.str("<div"), cljs.core.str(' data-role="popup" id="archive-popup"'), cljs.core.str(">"), cljs.core.str(hiccups.runtime.render_html.call(null, tomatinho.templates.header.call(null, "How did it go?"))), cljs.core.str(cljs.core.apply.call(null, cljs.core.str, function b(c) {
@@ -20464,7 +20471,7 @@ tomatinho.core.update_notification = function update_notification() {
   for(var b = cljs.core.PersistentVector.fromArray(["\ufdd0'quiet", "\ufdd0'normal", "\ufdd0'noisy"], !0), c = tomatinho.templates.notification.call(null, b, (new cljs.core.Keyword("\ufdd0'notifications")).call(null, tomatinho.core.storage)), d = cljs.core.seq.call(null, b);;) {
     if(d) {
       var e = cljs.core.first.call(null, d);
-      domina.events.unlisten_BANG_.call(null, domina.css.sel.call(null, cljs.core.format.call(null, "#notification a.b%s", cljs.core.name.call(null, e))));
+      domina.events.unlisten_BANG_.call(null, domina.css.sel.call(null, cljs.core.format.call(null, "#notification a.b%s", cljs.core.name.call(null, e))), "\ufdd0'click");
       d = cljs.core.next.call(null, d)
     }else {
       break
@@ -20782,38 +20789,37 @@ tomatinho.core.handle_forgo_click = function() {
 tomatinho.core.tick = function() {
   var a = tomatinho.utils.now.call(null), b = a.getTime(), c = function(a) {
     return tomatinho.utils.ms__GT_s.call(null, b - a)
-  }, d = cljs.core.deref.call(null, tomatinho.core.last_updated), e = cljs.core.seq_QMARK_.call(null, d) ? cljs.core.apply.call(null, cljs.core.hash_map, d) : d, f = cljs.core._lookup.call(null, e, "\ufdd0'start-time", null), d = cljs.core._lookup.call(null, e, "\ufdd0'beep", null), g = cljs.core._lookup.call(null, e, "\ufdd0'pomodoro-list", null), h = cljs.core._lookup.call(null, e, "\ufdd0'agenda", null), f = tomatinho.utils.ms__GT_s.call(null, b - f), f = cljs.core.reset_BANG_.call(null, tomatinho.core.timer_STAR_, 
-  f), i = (new cljs.core.Keyword("\ufdd0'current")).call(null, tomatinho.core.storage), j = tomatinho.utils.s__GT_ms.call(null, f), l;
-  l = (l = cljs.core._EQ_.call(null, i, "\ufdd0'work")) ? j >= tomatinho.core.pomodoro_length : l;
-  l && (cljs.core.reset_BANG_.call(null, tomatinho.core.timer_STAR_, 0), cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, e, "\ufdd0'start-time", b)), cljs.core.assoc_BANG_.call(null, tomatinho.core.storage, "\ufdd0'history", cljs.core.conj.call(null, (new cljs.core.Keyword("\ufdd0'history")).call(null, tomatinho.core.storage), cljs.core.ObjMap.fromObject(["\ufdd0'duration", "\ufdd0'end", "\ufdd0'kind"], {"\ufdd0'duration":j, "\ufdd0'end":a.getTime(), "\ufdd0'kind":"\ufdd0'pomodoro"}))), 
+  }, d = cljs.core.deref.call(null, tomatinho.core.last_updated), d = cljs.core.seq_QMARK_.call(null, d) ? cljs.core.apply.call(null, cljs.core.hash_map, d) : d, e = cljs.core._lookup.call(null, d, "\ufdd0'start-time", null), f = cljs.core._lookup.call(null, d, "\ufdd0'pomodoro-list", null), g = cljs.core._lookup.call(null, d, "\ufdd0'agenda", null), e = tomatinho.utils.ms__GT_s.call(null, b - e), e = cljs.core.reset_BANG_.call(null, tomatinho.core.timer_STAR_, e), h = (new cljs.core.Keyword("\ufdd0'current")).call(null, 
+  tomatinho.core.storage), i = tomatinho.utils.s__GT_ms.call(null, e), j;
+  j = (j = cljs.core._EQ_.call(null, h, "\ufdd0'work")) ? i >= tomatinho.core.pomodoro_length : j;
+  j && (cljs.core.reset_BANG_.call(null, tomatinho.core.timer_STAR_, 0), cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, d, "\ufdd0'start-time", b)), cljs.core.assoc_BANG_.call(null, tomatinho.core.storage, "\ufdd0'history", cljs.core.conj.call(null, (new cljs.core.Keyword("\ufdd0'history")).call(null, tomatinho.core.storage), cljs.core.ObjMap.fromObject(["\ufdd0'duration", "\ufdd0'end", "\ufdd0'kind"], {"\ufdd0'duration":i, "\ufdd0'end":a.getTime(), "\ufdd0'kind":"\ufdd0'pomodoro"}))), 
   cljs.core.assoc_BANG_.call(null, tomatinho.core.storage, "\ufdd0'current", "\ufdd0'pause"));
-  tomatinho.core.update_button.call(null, f, i, a);
-  tomatinho.core.update_resources.call(null);
-  30 < c.call(null, g) && (cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, e, "\ufdd0'pomodoro-list", b)), tomatinho.core.update_status.call(null));
+  tomatinho.core.update_button.call(null, e, h, a);
+  30 < c.call(null, f) && (cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, d, "\ufdd0'pomodoro-list", b)), tomatinho.core.update_status.call(null));
   cljs.core.truth_(function() {
     var b;
     b = (b = cljs.core._EQ_.call(null, 30, a.getMinutes())) ? b : cljs.core._EQ_.call(null, 0, a.getMinutes());
-    return cljs.core.truth_(b) ? 60 < c.call(null, h) : b
-  }()) && (cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, e, "\ufdd0'agenda", b)), tomatinho.core.update_resources.call(null));
-  if(60 < c.call(null, d)) {
-    cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, e, "\ufdd0'beep", b));
-    e = (new cljs.core.Keyword("\ufdd0'notifications")).call(null, tomatinho.core.storage);
-    if(cljs.core._EQ_.call(null, "\ufdd0'noisy", e)) {
-      if(cljs.core._EQ_.call(null, "\ufdd0'work", i)) {
+    return cljs.core.truth_(b) ? 60 < c.call(null, g) : b
+  }()) && (cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, d, "\ufdd0'agenda", b)), tomatinho.core.update_resources.call(null));
+  if(60 < c.call(null, (new cljs.core.Keyword("\ufdd0'beep")).call(null, d))) {
+    cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, d, "\ufdd0'beep", b));
+    d = (new cljs.core.Keyword("\ufdd0'notifications")).call(null, tomatinho.core.storage);
+    if(cljs.core._EQ_.call(null, "\ufdd0'noisy", d)) {
+      if(cljs.core._EQ_.call(null, "\ufdd0'work", h)) {
         return tomatinho.core.vibrate.call(null)
       }
-      e = 5 < cljs.core.int$.call(null, f / 60 / 5) ? cljs.core.int$.call(null, f / 60 / 5) : 5;
+      d = 5 < cljs.core.int$.call(null, e / 60 / 5) ? cljs.core.int$.call(null, e / 60 / 5) : 5;
       tomatinho.core.vibrate.call(null);
-      return d.call(null, e)
+      return tomatinho.core.beep.call(null, d)
     }
-    if(cljs.core._EQ_.call(null, "\ufdd0'normal", e)) {
-      if(cljs.core._EQ_.call(null, "\ufdd0'work", i)) {
+    if(cljs.core._EQ_.call(null, "\ufdd0'normal", d)) {
+      if(cljs.core._EQ_.call(null, "\ufdd0'work", h)) {
         return tomatinho.core.vibrate.call(null, 0.5)
       }
       tomatinho.core.vibrate.call(null, 1);
-      return d.call(null)
+      return tomatinho.core.beep.call(null)
     }
-    if(cljs.core._EQ_.call(null, "\ufdd0'quiet", e)) {
+    if(cljs.core._EQ_.call(null, "\ufdd0'quiet", d)) {
       return tomatinho.utils.log.call(null, "so peaceful this message won't even show up")
     }
     throw Error([cljs.core.str("No matching clause: "), cljs.core.str((new cljs.core.Keyword("\ufdd0'notifications")).call(null, tomatinho.core.storage))].join(""));

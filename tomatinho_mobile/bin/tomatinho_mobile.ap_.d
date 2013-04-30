@@ -7,7 +7,6 @@
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/bin/res/drawable/icon.png \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/tomatinho.html \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/index.html \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/js \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img \
@@ -15,7 +14,6 @@
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css/jquery.mobile.theme-1.3.0.min.css \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css/jquery-ui.css \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css/images \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css/jquery.mobile-1.3.0.min.css \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css/jquery.mobile.structure-1.3.0.min.css \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css/images/icons-36-black.png \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css/images/icons-36-white.png \
@@ -24,19 +22,12 @@
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/css/images/icons-18-black.png \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/js/tomatinho.js \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/tomate.png \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/sneaker_mesh_fabric.png \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/tristis.png \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/laetus.png \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/tomate.jpg \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/medius.png \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/sneaker_mesh_fabric \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/sneaker_mesh_fabric/sneaker_mesh_fabric_@2X.png \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/sneaker_mesh_fabric/sneaker_mesh_fabric.png \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/img/sneaker_mesh_fabric/readme.txt \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/externs/xpath.js \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/externs/cordova-2.5.0.js \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/externs/jquery-1.8.2.min.js \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/externs/zepto.min.js \
-/home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/externs/jquery.mobile-1.3.0.min.css \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/assets/www/externs/jquery.mobile-1.3.0.min.js \
 /home/konrad/repos/tomatinho-mobile/tomatinho_mobile/bin/AndroidManifest.xml \

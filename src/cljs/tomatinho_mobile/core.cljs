@@ -62,7 +62,8 @@
         new  (t/notification options (:notifications storage))]
 
     ;; Destroy
-    (doseq [option options] (unlisten! (-> "#notification a.b%s" (format (name option)) sel)))
+    (doseq [option options]
+        (unlisten! (-> "#notification a.b%s" (format (name option)) sel) :click))
     (destroy! (sel "#notification div"))
 
     ;; Create
@@ -71,8 +72,8 @@
 
 
     (doseq [option options]
-      (listen! (-> "#notification a.b%s" (format (name option)) sel) :click
-               #(do (assoc! storage :notifications option) (update-notification))))))
+        (listen! (-> "#notification a.b%s" (format (name option)) sel) :click
+                 #(do (assoc! storage :notifications option) (update-notification))))))
 
 (defn update-resources []
   (let [;; Time
@@ -295,7 +296,7 @@
   (let [now-object (now)
         unix-now (.getTime now-object)
         seconds-to-now #(-> unix-now (- %) ms->s)
-        {:keys [agenda pomodoro-list beep start-time] :as lu} @last-updated
+        {:keys [agenda pomodoro-list start-time] :as lu} @last-updated
         diff (-> unix-now (- start-time) ms->s)
         n (reset! timer* diff)
         cur (:current storage)
@@ -308,21 +309,27 @@
               (conj (:history storage) {:duration duration-ms :end (.getTime now-object) :kind :pomodoro}))
       (assoc! storage :current :pause))
     (update-button n cur now-object)
-    (update-resources)
+
+    ;; Leak
+    ;;(update-resources)
+    ;;(update-notification)
+    ;;(update-reflectanda)
+    ;;(update-goals)
+    ;;(update-status)
+    ;;(update-button)
 
     (when (> (seconds-to-now pomodoro-list) 30)
       (reset! last-updated (assoc lu :pomodoro-list unix-now)) (update-status))
     (when (and (or (= 30 (.getMinutes now-object)) (= 0 (.getMinutes now-object)))
                (> (seconds-to-now agenda) 60))
       (reset! last-updated (assoc lu :agenda unix-now)) (update-resources))
-    (when (> (seconds-to-now beep) 60)
+    (when (> (seconds-to-now (:beep lu)) 60)
       (reset! last-updated (assoc lu :beep unix-now))
       (case (:notifications storage)
         :quiet (log "so peaceful this message won't even show up")
         :normal (if (= :work cur)
                   (vibrate 0.5)
-                  (do (vibrate 1)
-                      (beep)))
+                  (do (vibrate 1) (beep)))
         :noisy (if (= :work cur)
                  (vibrate)
                  (let [away (-> n (/ 60) (/ 5) int (max 5))]
@@ -395,8 +402,8 @@
 
   ;; JS timer, for browser testing
   #_(doto (goog.Timer. (/ 1000 1))
-      (listen! goog.Timer/TICK tick)
-      .start)
+    (listen! goog.Timer/TICK tick)
+    .start)
 
   (update-all))
 
