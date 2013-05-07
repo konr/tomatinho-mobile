@@ -19687,11 +19687,10 @@ tomatinho.templates.goals_popup_list = function(a) {
           return cljs.core.cons.call(null, "" + cljs.core.str(function() {
             var a = cljs.core.truth_(g) ? cljs.core.PersistentVector.fromArray(["\ufdd0'a", cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":f, "\ufdd0'class":"selected"}), cljs.core.PersistentVector.fromArray(["\ufdd0's.text", h], !0)], !0) : cljs.core.PersistentVector.fromArray(["\ufdd0'a", cljs.core.ObjMap.fromObject(["\ufdd0'id"], {"\ufdd0'id":f}), cljs.core.PersistentVector.fromArray(["\ufdd0'span.text", h], !0)], !0);
             return cljs.core.map_QMARK_.call(null, a) ? [cljs.core.str("<li"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.merge.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'id", "\ufdd0'class"], {"\ufdd0'id":null, "\ufdd0'class":null}), a))), cljs.core.str(">"), cljs.core.str("<a"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'data-iconpos", "\ufdd0'data-icon", "\ufdd0'data-role", "\ufdd0'id", "\ufdd0'class"], {"\ufdd0'data-iconpos":"notext", 
-            "\ufdd0'data-icon":"delete", "\ufdd0'data-role":"button", "\ufdd0'id":[cljs.core.str("d"), cljs.core.str(cljs.core.name.call(null, f))].join(""), "\ufdd0'class":"split-button-custom delete"}))), cljs.core.str(">"), cljs.core.str("Delete"), cljs.core.str("</a>"), cljs.core.str("<a"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.ObjMap.fromObject("\ufdd0'data-iconpos \ufdd0'data-icon \ufdd0'data-role \ufdd0'data-rel \ufdd0'href \ufdd0'id \ufdd0'class".split(" "), {"\ufdd0'data-iconpos":"notext", 
-            "\ufdd0'data-icon":"edit", "\ufdd0'data-role":"button", "\ufdd0'data-rel":"popup", "\ufdd0'href":"#add-popup", "\ufdd0'id":[cljs.core.str("e"), cljs.core.str(cljs.core.name.call(null, f))].join(""), "\ufdd0'class":"split-button-custom delete"}))), cljs.core.str(">"), cljs.core.str("Edit"), cljs.core.str("</a>"), cljs.core.str('<a style="display: none"></a>'), cljs.core.str("</li>")].join("") : [cljs.core.str("<li>"), cljs.core.str(hiccups.runtime.render_html.call(null, a)), cljs.core.str("<a"), 
-            cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'data-iconpos", "\ufdd0'data-icon", "\ufdd0'data-role", "\ufdd0'id", "\ufdd0'class"], {"\ufdd0'data-iconpos":"notext", "\ufdd0'data-icon":"delete", "\ufdd0'data-role":"button", "\ufdd0'id":[cljs.core.str("d"), cljs.core.str(cljs.core.name.call(null, f))].join(""), "\ufdd0'class":"split-button-custom delete"}))), cljs.core.str(">"), cljs.core.str("Delete"), cljs.core.str("</a>"), cljs.core.str("<a"), 
-            cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.ObjMap.fromObject("\ufdd0'data-iconpos \ufdd0'data-icon \ufdd0'data-role \ufdd0'data-rel \ufdd0'href \ufdd0'id \ufdd0'class".split(" "), {"\ufdd0'data-iconpos":"notext", "\ufdd0'data-icon":"edit", "\ufdd0'data-role":"button", "\ufdd0'data-rel":"popup", "\ufdd0'href":"#add-popup", "\ufdd0'id":[cljs.core.str("e"), cljs.core.str(cljs.core.name.call(null, f))].join(""), "\ufdd0'class":"split-button-custom delete"}))), cljs.core.str(">"), 
-            cljs.core.str("Edit"), cljs.core.str("</a>"), cljs.core.str('<a style="display: none"></a>'), cljs.core.str("</li>")].join("")
+            "\ufdd0'data-icon":"delete", "\ufdd0'data-role":"button", "\ufdd0'id":[cljs.core.str("d"), cljs.core.str(cljs.core.name.call(null, f))].join(""), "\ufdd0'class":"split-button-custom delete"}))), cljs.core.str(">"), cljs.core.str("Delete"), cljs.core.str("</a>"), cljs.core.str("<a"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'data-iconpos", "\ufdd0'data-icon", "\ufdd0'data-role", "\ufdd0'id", "\ufdd0'class"], {"\ufdd0'data-iconpos":"notext", 
+            "\ufdd0'data-icon":"edit", "\ufdd0'data-role":"button", "\ufdd0'id":[cljs.core.str("e"), cljs.core.str(cljs.core.name.call(null, f))].join(""), "\ufdd0'class":"split-button-custom delete"}))), cljs.core.str(">"), cljs.core.str("Edit"), cljs.core.str("</a>"), cljs.core.str('<a style="display: none"></a>'), cljs.core.str("</li>")].join("") : [cljs.core.str("<li>"), cljs.core.str(hiccups.runtime.render_html.call(null, a)), cljs.core.str("<a"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, 
+            cljs.core.ObjMap.fromObject(["\ufdd0'data-iconpos", "\ufdd0'data-icon", "\ufdd0'data-role", "\ufdd0'id", "\ufdd0'class"], {"\ufdd0'data-iconpos":"notext", "\ufdd0'data-icon":"delete", "\ufdd0'data-role":"button", "\ufdd0'id":[cljs.core.str("d"), cljs.core.str(cljs.core.name.call(null, f))].join(""), "\ufdd0'class":"split-button-custom delete"}))), cljs.core.str(">"), cljs.core.str("Delete"), cljs.core.str("</a>"), cljs.core.str("<a"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, 
+            cljs.core.ObjMap.fromObject(["\ufdd0'data-iconpos", "\ufdd0'data-icon", "\ufdd0'data-role", "\ufdd0'id", "\ufdd0'class"], {"\ufdd0'data-iconpos":"notext", "\ufdd0'data-icon":"edit", "\ufdd0'data-role":"button", "\ufdd0'id":[cljs.core.str("e"), cljs.core.str(cljs.core.name.call(null, f))].join(""), "\ufdd0'class":"split-button-custom delete"}))), cljs.core.str(">"), cljs.core.str("Edit"), cljs.core.str("</a>"), cljs.core.str('<a style="display: none"></a>'), cljs.core.str("</li>")].join("")
           }()), c.call(null, cljs.core.rest.call(null, a)))
         }
         return null
@@ -19719,11 +19718,7 @@ tomatinho.templates.simple_goals_list = function(a) {
   }.call(null, cljs.core.empty_QMARK_.call(null, a) ? b : a)))
 };
 tomatinho.templates.goals_popup_base = function() {
-  return[cljs.core.str("<div"), cljs.core.str(' data-role="popup" id="goals-popup"'), cljs.core.str(">"), cljs.core.str(hiccups.runtime.render_html.call(null, tomatinho.templates.header.call(null, "Goals"))), cljs.core.str('<div class="placeholder"></div>'), cljs.core.str('<a class="add" data-rel="popup" data-role="button" href="#add-popup">Add</a>'), cljs.core.str("</div>")].join("")
-};
-tomatinho.templates.add_popup = function(a) {
-  return[cljs.core.str("<div"), cljs.core.str(' data-role="popup" id="add-popup"'), cljs.core.str(">"), cljs.core.str(hiccups.runtime.render_html.call(null, tomatinho.templates.header.call(null, "New goal"))), cljs.core.str("<"), cljs.core.str("input"), cljs.core.str(hiccups.runtime.render_attr_map.call(null, cljs.core.ObjMap.fromObject(["\ufdd0'value", "\ufdd0'type", "\ufdd0'id", "\ufdd0'class"], {"\ufdd0'value":a, "\ufdd0'type":"text", "\ufdd0'id":null, "\ufdd0'class":null}))), cljs.core.str(" />"), 
-  cljs.core.str('<a class="add" data-role="button">Add</a>'), cljs.core.str("</div>")].join("")
+  return[cljs.core.str("<div"), cljs.core.str(' data-role="popup" id="goals-popup"'), cljs.core.str(">"), cljs.core.str(hiccups.runtime.render_html.call(null, tomatinho.templates.header.call(null, "Goals"))), cljs.core.str('<div class="placeholder"></div>'), cljs.core.str('<a class="add" data-rel="popup" data-role="button">Add</a>'), cljs.core.str("</div>")].join("")
 };
 tomatinho.templates.info_popup = function(a, b) {
   var c = cljs.core.seq_QMARK_.call(null, a) ? cljs.core.apply.call(null, cljs.core.hash_map, a) : a, d = cljs.core._lookup.call(null, c, "\ufdd0'history", null), e = cljs.core._lookup.call(null, c, "\ufdd0'goals", null), f = cljs.core._lookup.call(null, c, "\ufdd0'feeling", null), c = cljs.core._lookup.call(null, c, "\ufdd0'date", null);
@@ -20467,6 +20462,24 @@ tomatinho.core.vibrate = function() {
   a.cljs$lang$arity$1 = c;
   return a
 }();
+tomatinho.core.prompt = function() {
+  var a = null, b = function(b, c, f) {
+    return a.call(null, b, c, f, "", cljs.core.PersistentVector.EMPTY)
+  }, c = function(a, b, c) {
+    return c.call(null, window.prompt(a, b))
+  }, a = function(a, e, f, g, h) {
+    switch(arguments.length) {
+      case 3:
+        return b.call(this, a, e, f);
+      case 5:
+        return c.call(this, a, e, f, g, h)
+    }
+    throw Error("Invalid arity: " + arguments.length);
+  };
+  a.cljs$lang$arity$3 = b;
+  a.cljs$lang$arity$5 = c;
+  return a
+}();
 tomatinho.core.update_notification = function update_notification() {
   for(var b = cljs.core.PersistentVector.fromArray(["\ufdd0'quiet", "\ufdd0'normal", "\ufdd0'noisy"], !0), c = tomatinho.templates.notification.call(null, b, (new cljs.core.Keyword("\ufdd0'notifications")).call(null, tomatinho.core.storage)), d = cljs.core.seq.call(null, b);;) {
     if(d) {
@@ -20614,7 +20627,7 @@ tomatinho.core.update_goals_popup = function() {
       domina.events.listen_BANG_.call(null, domina.by_id.call(null, [cljs.core.str("e"), cljs.core.str(cljs.core.name.call(null, c))].join("")), "\ufdd0'click", function(a, b, c, d, e, f, g, h) {
         return function() {
           cljs.core.reset_BANG_.call(null, tomatinho.core.editanda, c);
-          return domina.set_value_BANG_.call(null, domina.css.sel.call(null, "#add-popup input"), h)
+          return tomatinho.core.prompt.call(null, "Name the goal", h, tomatinho.core.handle_goal_prompt)
         }
       }(a, b, c, d, e, f, g, h));
       a = cljs.core.next.call(null, a)
@@ -20664,22 +20677,13 @@ tomatinho.core.create_range_popup = function() {
 };
 tomatinho.core.create_goals_popup = function() {
   domina.events.unlisten_BANG_.call(null, domina.css.sel.call(null, "#goals-popup .add"), "\ufdd0'click");
-  domina.events.unlisten_BANG_.call(null, domina.css.sel.call(null, "#add-popup .add"), "\ufdd0'click");
   domina.destroy_BANG_.call(null, domina.by_id.call(null, "goals-popup"));
-  domina.destroy_BANG_.call(null, domina.by_id.call(null, "add-popup"));
-  for(var a = tomatinho.templates.goals_popup_base.call(null), b = tomatinho.templates.add_popup.call(null, ""), a = cljs.core.seq.call(null, cljs.core.PersistentVector.fromArray([a, b], !0));;) {
-    if(a) {
-      b = cljs.core.first.call(null, a), tomatinho.core.append_to_body_BANG_.call(null, b), a = cljs.core.next.call(null, a)
-    }else {
-      break
-    }
-  }
-  tomatinho.jquery_mobile.make_popup_without_opening.call(null, "#add-popup");
+  tomatinho.core.append_to_body_BANG_.call(null, tomatinho.templates.goals_popup_base.call(null));
   tomatinho.jquery_mobile.make_popup.call(null, "#goals-popup");
   domina.events.listen_BANG_.call(null, domina.css.sel.call(null, "#goals-popup .add"), "\ufdd0'click", function() {
-    return cljs.core.reset_BANG_.call(null, tomatinho.core.editanda, null)
+    cljs.core.reset_BANG_.call(null, tomatinho.core.editanda, null);
+    return tomatinho.core.prompt.call(null, "Name the goal", "", tomatinho.core.handle_goal_prompt)
   });
-  domina.events.listen_BANG_.call(null, domina.css.sel.call(null, "#add-popup .add"), "\ufdd0'click", tomatinho.core.handle_ok_click);
   return tomatinho.core.update_goals.call(null)
 };
 tomatinho.core.create_archive_popup = function() {
@@ -20766,14 +20770,16 @@ tomatinho.core.handle_plan_click = function(a) {
   }
   return null
 };
-tomatinho.core.handle_ok_click = function() {
-  var a = domina.value.call(null, domina.css.sel.call(null, "#add-popup input")), b = goog.now(), c;
-  c = cljs.core.deref.call(null, tomatinho.core.editanda);
-  c = cljs.core.truth_(c) ? c : [cljs.core.str(b), cljs.core.str("-"), cljs.core.str(a)].join("");
-  a = cljs.core.PersistentArrayMap.fromArrays([c], [cljs.core.ObjMap.fromObject(["\ufdd0'name", "\ufdd0'date", "\ufdd0'complete"], {"\ufdd0'name":a, "\ufdd0'date":b, "\ufdd0'complete":null})]);
-  cljs.core.assoc_BANG_.call(null, tomatinho.core.storage, "\ufdd0'goals", cljs.core.conj.call(null, (new cljs.core.Keyword("\ufdd0'goals")).call(null, tomatinho.core.storage), a));
-  tomatinho.jquery_mobile.close_popup.call(null, "#add-popup");
-  return tomatinho.core.update_goals.call(null)
+tomatinho.core.handle_goal_prompt = function(a) {
+  if(cljs.core.truth_(a)) {
+    var b = goog.now(), c;
+    c = cljs.core.deref.call(null, tomatinho.core.editanda);
+    c = cljs.core.truth_(c) ? c : [cljs.core.str(b), cljs.core.str("-"), cljs.core.str(a)].join("");
+    a = cljs.core.PersistentArrayMap.fromArrays([c], [cljs.core.ObjMap.fromObject(["\ufdd0'name", "\ufdd0'date", "\ufdd0'complete"], {"\ufdd0'name":a, "\ufdd0'date":b, "\ufdd0'complete":null})]);
+    cljs.core.assoc_BANG_.call(null, tomatinho.core.storage, "\ufdd0'goals", cljs.core.conj.call(null, (new cljs.core.Keyword("\ufdd0'goals")).call(null, tomatinho.core.storage), a));
+    return tomatinho.core.update_goals.call(null)
+  }
+  return null
 };
 tomatinho.core.handle_click = function() {
   tomatinho.core.inhibit_sleep.call(null);
@@ -20789,12 +20795,13 @@ tomatinho.core.handle_forgo_click = function() {
 tomatinho.core.tick = function() {
   var a = tomatinho.utils.now.call(null), b = a.getTime(), c = function(a) {
     return tomatinho.utils.ms__GT_s.call(null, b - a)
-  }, d = cljs.core.deref.call(null, tomatinho.core.last_updated), d = cljs.core.seq_QMARK_.call(null, d) ? cljs.core.apply.call(null, cljs.core.hash_map, d) : d, e = cljs.core._lookup.call(null, d, "\ufdd0'start-time", null), f = cljs.core._lookup.call(null, d, "\ufdd0'pomodoro-list", null), g = cljs.core._lookup.call(null, d, "\ufdd0'agenda", null), e = tomatinho.utils.ms__GT_s.call(null, b - e), e = cljs.core.reset_BANG_.call(null, tomatinho.core.timer_STAR_, e), h = (new cljs.core.Keyword("\ufdd0'current")).call(null, 
-  tomatinho.core.storage), i = tomatinho.utils.s__GT_ms.call(null, e), j;
+  }, d = cljs.core.deref.call(null, tomatinho.core.last_updated), d = cljs.core.seq_QMARK_.call(null, d) ? cljs.core.apply.call(null, cljs.core.hash_map, d) : d, e = cljs.core._lookup.call(null, d, "\ufdd0'start-time", null), f = cljs.core._lookup.call(null, d, "\ufdd0'pomodoro-list", null), g = cljs.core._lookup.call(null, d, "\ufdd0'agenda", null), e = cljs.core.reset_BANG_.call(null, tomatinho.core.timer_STAR_, c.call(null, e)), h = (new cljs.core.Keyword("\ufdd0'current")).call(null, tomatinho.core.storage), 
+  i = tomatinho.utils.s__GT_ms.call(null, e);
+  tomatinho.core.update_button.call(null, e, h, a);
+  var j;
   j = (j = cljs.core._EQ_.call(null, h, "\ufdd0'work")) ? i >= tomatinho.core.pomodoro_length : j;
   j && (cljs.core.reset_BANG_.call(null, tomatinho.core.timer_STAR_, 0), cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, d, "\ufdd0'start-time", b)), cljs.core.assoc_BANG_.call(null, tomatinho.core.storage, "\ufdd0'history", cljs.core.conj.call(null, (new cljs.core.Keyword("\ufdd0'history")).call(null, tomatinho.core.storage), cljs.core.ObjMap.fromObject(["\ufdd0'duration", "\ufdd0'end", "\ufdd0'kind"], {"\ufdd0'duration":i, "\ufdd0'end":a.getTime(), "\ufdd0'kind":"\ufdd0'pomodoro"}))), 
-  cljs.core.assoc_BANG_.call(null, tomatinho.core.storage, "\ufdd0'current", "\ufdd0'pause"));
-  tomatinho.core.update_button.call(null, e, h, a);
+  cljs.core.assoc_BANG_.call(null, tomatinho.core.storage, "\ufdd0'current", "\ufdd0'pause"), tomatinho.core.update_resources.call(null));
   30 < c.call(null, f) && (cljs.core.reset_BANG_.call(null, tomatinho.core.last_updated, cljs.core.assoc.call(null, d, "\ufdd0'pomodoro-list", b)), tomatinho.core.update_status.call(null));
   cljs.core.truth_(function() {
     var b;
@@ -20808,7 +20815,7 @@ tomatinho.core.tick = function() {
       if(cljs.core._EQ_.call(null, "\ufdd0'work", h)) {
         return tomatinho.core.vibrate.call(null)
       }
-      d = 5 < cljs.core.int$.call(null, e / 60 / 5) ? cljs.core.int$.call(null, e / 60 / 5) : 5;
+      d = 5 > cljs.core.int$.call(null, e / 60 / 5) ? cljs.core.int$.call(null, e / 60 / 5) : 5;
       tomatinho.core.vibrate.call(null);
       return tomatinho.core.beep.call(null, d)
     }

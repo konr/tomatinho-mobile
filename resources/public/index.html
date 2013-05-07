@@ -1,8 +1,5 @@
 <html>
   <head>
-    <script src="externs/cordova-2.5.0.js"></script>
-    <script src="externs/jquery-1.8.2.min.js"></script>
-    <script src="externs/jquery.mobile-1.3.0.min.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile.theme-1.3.0.min.css" />
     <link rel="stylesheet" href="css/jquery.mobile.structure-1.3.0.min.css" />
     <style type="text/css">
@@ -181,22 +178,6 @@
   </head>
   <meta content='width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;' name='viewport' />
   <meta name="viewport" content="width=device-width" />
-  <script type="text/javascript">
-    /* Android 2.x claims XPath support, but has none.  Force non-native
-    XPath implementation in this case */
-    if (document.implementation
-    && document.implementation.hasFeature
-    && document.implementation.hasFeature("XPath",null)
-    && !document.evaluate) {
-    window.jsxpath = {
-    targetFrame: undefined,
-    exportInstaller: false,
-    useNative: false, /* force non-native implementation */
-    useInnerText: true
-    };
-    }
-  </script>
-  <script type="text/javascript" src="externs/xpath.js"></script>
 </head>
 <body>
 
@@ -306,13 +287,28 @@
   </div><!-- /content -->
 </div><!-- /page -->
 </body>
-<script type="text/javascript" src="js/tomatinho.js"></script>
-<script>
-  /*
-  $(document).on("mobileinit", function () {
-  $.mobile.defaultDialogTransition = "none";
-  $.mobile.defaultPageTransition = "none";
-  });
-  */
+<script type="text/javascript">
+  /* Android 2.x claims XPath support, but has none.  Force non-native
+  XPath implementation in this case */
+  if (document.implementation
+  && document.implementation.hasFeature
+  && document.implementation.hasFeature("XPath",null)
+  && !document.evaluate) {
+  window.jsxpath = {
+  targetFrame: undefined,
+  exportInstaller: false,
+  useNative: false, /* force non-native implementation */
+  useInnerText: true
+  };
+  }
 </script>
+<script type="text/javascript" src="externs/xpath.js"></script>
+<script src="externs/jquery-1.8.2.min.js"></script>
+<script src="externs/cordova-2.5.0.js"></script>
+<script src="externs/jquery.mobile-1.3.0.min.js"></script>
+<script type="text/javascript" src="js/tomatinho.js"></script>
+
+<script type="text/javascript">
+</script>
+
 </html>

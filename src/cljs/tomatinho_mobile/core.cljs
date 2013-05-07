@@ -24,7 +24,7 @@
             [goog.date.DateTime :as goog-date]))
 
 
-(declare handle-click-goal handle-plan-click handle-ok-click archive create-info-popup inhibit-sleep
+(declare handle-click-goal handle-plan-click handle-goal-prompt archive create-info-popup inhibit-sleep
          update-goals pomodoro-length timer*)
 
 ;; Aux
@@ -54,6 +54,15 @@
   ([n] (try (-> (js* "navigator") (.-notification) (.vibrate n))
             (catch js/Object e nil))))
 
+(defn prompt
+  ([message prior callback] (prompt message prior callback "" []))
+  ([message prior callback title labels]
+     (-> message (js/window.prompt prior) callback)
+     ;; Cordova's prompt not working :(
+     #_(try (-> (js* "navigator") (.-notification)
+                (.prompt message callback title (clj->js labels)))
+            (catch js/Object e nil))))
+
 ;; --
 
 
@@ -63,7 +72,7 @@
 
     ;; Destroy
     (doseq [option options]
-        (unlisten! (-> "#notification a.b%s" (format (name option)) sel) :click))
+      (unlisten! (-> "#notification a.b%s" (format (name option)) sel) :click))
     (destroy! (sel "#notification div"))
 
     ;; Create
@@ -72,8 +81,8 @@
 
 
     (doseq [option options]
-        (listen! (-> "#notification a.b%s" (format (name option)) sel) :click
-                 #(do (assoc! storage :notifications option) (update-notification))))))
+      (listen! (-> "#notification a.b%s" (format (name option)) sel) :click
+               #(do (assoc! storage :notifications option) (update-notification))))))
 
 (defn update-resources []
   (let [;; Time
@@ -145,7 +154,7 @@
       (listen! (-> (str "d" (cljs.core/name id)) by-id) :click
                #(do (assoc! storage :goals (dissoc (:goals storage) id)) (update-goals)))
       (listen! (-> (str "e" (cljs.core/name id)) by-id) :click
-               #(do (reset! editanda id) (-> "#add-popup input" sel (set-value! name)))))))
+               #(do (reset! editanda id) (prompt "Name the goal" name handle-goal-prompt))))))
 
 (defn update-goals []
   (destroy! (by-class "goal"))
@@ -183,20 +192,12 @@
 
 (defn create-goals-popup []
   (unlisten! (sel "#goals-popup .add") :click)
-  (unlisten! (sel "#add-popup .add") :click)
   (destroy! (by-id "goals-popup"))
-  (destroy! (by-id "add-popup"))
 
-  (let [goals-popup (-> (t/goals-popup-base))
-        add-popup (-> (t/add-popup ""))]
-    (doseq [clone [goals-popup add-popup]]
-      (append-to-body! clone))
-
-    (make-popup-without-opening "#add-popup")
-    (make-popup "#goals-popup")
-
-    (listen! (sel "#goals-popup .add") :click #(reset! editanda nil))
-    (listen! (sel "#add-popup .add") :click handle-ok-click))
+  (-> (t/goals-popup-base) append-to-body!)
+  (make-popup "#goals-popup")
+  (listen! (sel "#goals-popup .add") :click
+           #(do (reset! editanda nil) (prompt "Name the goal" "" handle-goal-prompt)))
 
   (update-goals))
 
@@ -263,17 +264,15 @@
             (update-status)))))))
 
 
-(defn handle-ok-click [e]
-  (let [name (-> "#add-popup input" sel value)
-        date (goog.now)
-        complete nil
-        id @editanda
-        id (or id (str date "-" name))
-        pretty {id {:name name :date date :complete complete}}]
-    (assoc! storage :goals (conj (:goals storage) pretty))
-    (close-popup "#add-popup")
-    #_(destroy-all-popups!)
-    (update-goals)))
+(defn handle-goal-prompt [name]
+  (when name
+    (let [date (goog.now)
+          complete nil
+          id @editanda
+          id (or id (str date "-" name))
+          pretty {id {:name name :date date :complete complete}}]
+      (assoc! storage :goals (conj (:goals storage) pretty))
+      (update-goals))))
 
 (defn handle-click []
   (inhibit-sleep)
@@ -297,26 +296,19 @@
         unix-now (.getTime now-object)
         seconds-to-now #(-> unix-now (- %) ms->s)
         {:keys [agenda pomodoro-list start-time] :as lu} @last-updated
-        diff (-> unix-now (- start-time) ms->s)
-        n (reset! timer* diff)
+        n (reset! timer* (seconds-to-now start-time))
         cur (:current storage)
         duration-ms (s->ms n)]
+    (update-button n cur now-object)
+
     ;; Finish an overdue pomodoro
     (when (and (= cur :work) (>= duration-ms pomodoro-length))
       (reset! timer* 0)
       (reset! last-updated (assoc lu :start-time unix-now))
       (assoc! storage :history
               (conj (:history storage) {:duration duration-ms :end (.getTime now-object) :kind :pomodoro}))
-      (assoc! storage :current :pause))
-    (update-button n cur now-object)
-
-    ;; Leak
-    ;;(update-resources)
-    ;;(update-notification)
-    ;;(update-reflectanda)
-    ;;(update-goals)
-    ;;(update-status)
-    ;;(update-button)
+      (assoc! storage :current :pause)
+      (update-resources))
 
     (when (> (seconds-to-now pomodoro-list) 30)
       (reset! last-updated (assoc lu :pomodoro-list unix-now)) (update-status))
@@ -332,12 +324,10 @@
                   (do (vibrate 1) (beep)))
         :noisy (if (= :work cur)
                  (vibrate)
-                 (let [away (-> n (/ 60) (/ 5) int (max 5))]
+                 (let [away (-> n (/ 60) (/ 5) int (min 5))]
                    (vibrate) (beep away)))))))
 
-
-
-;;; ------------------
+;; ------------------------------------------------------
 
 (defn ^:export inhibit-sleep
   ([] (inhibit-sleep pomodoro-length))
@@ -391,7 +381,6 @@
   (reset! last-updated (zipmap [:agenda :pomodoro-list :beep :start-time]
                                (repeat (goog.now))))
 
-
   ;; Top-level listeners
   (listen! (sel "#current-time")   :click handle-click)
   (listen! (sel ".simple-list")    :click create-goals-popup)
@@ -402,8 +391,8 @@
 
   ;; JS timer, for browser testing
   #_(doto (goog.Timer. (/ 1000 1))
-    (listen! goog.Timer/TICK tick)
-    .start)
+      (listen! goog.Timer/TICK tick)
+      .start)
 
   (update-all))
 

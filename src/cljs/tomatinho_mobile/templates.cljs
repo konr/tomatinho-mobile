@@ -94,7 +94,6 @@
        [:a {:class "split-button-custom delete" :id (str "d" (cljs.core/name id))
             :data-role "button" :data-icon "delete" :data-iconpos "notext"} "Delete"]
        [:a {:class "split-button-custom delete" :id (str "e" (cljs.core/name id))
-            :href "#add-popup" :data-rel "popup"
             :data-role "button" :data-icon "edit" :data-iconpos "notext"} "Edit"]
        [:a {:style "display: none"}]])]))
 
@@ -110,14 +109,7 @@
    [:div {:data-role "popup" :id "goals-popup"}
     (header "Goals")
     [:div.placeholder]
-    [:a.add {:data-role "button" :data-rel "popup" :href "#add-popup"} "Add"]]))
-
-(defn add-popup [name]
-  (html
-   [:div {:data-role "popup" :id "add-popup"}
-    (header "New goal")
-    [:input {:type "text" :value name}]
-    [:a.add {:data-role "button"} "Add"]]))
+    [:a.add {:data-role "button" :data-rel "popup"} "Add"]]))
 
 
 (defn info-popup [{:keys [date feeling goals history]} pomodoro-length]
