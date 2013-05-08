@@ -8,8 +8,8 @@
   2. Link the resources directory to the assets directory (ls -s resources/public/ android/assets/www/)
   3. Go to the android directory (cd android)
   4. Plug your device, making sure you have:
-     * USB debugging enabled on the phone
-     * Android tools (such as adb)
+     (1) USB debugging enabled on the phone
+     (2) Android tools (such as adb)
   5. Install it! (ant debug install)
 
 * To be done
