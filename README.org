@@ -1,6 +1,6 @@
 * Toma-what?
 
-  Tomatinho! The [[https://play.google.com/store/apps/details?id=com.tomatinho_mobile][Emacs pomodoro timer]] now on android! https://play.google.com/store/apps/details?id=com.tomatinho_mobile
+  Tomatinho! The [[https://github.com/konr/tomatinho][Emacs pomodoro timer]] now on android! https://play.google.com/store/apps/details?id=com.tomatinho_mobile
   
 * How to compile and run it in your phone
 
