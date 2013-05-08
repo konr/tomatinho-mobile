@@ -1,6 +1,4 @@
 (ns tomatinho.core
-  (:require-macros [tomatinho-mobile.macros :refer [for-finally]]
-                   )
   (:require [domina.events :refer [listen! unlisten!]]
             [tomatinho.templates :as t]
             [tomatinho.utils :refer [s->ms ms->s format-time now make-time

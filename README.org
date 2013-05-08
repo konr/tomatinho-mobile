@@ -2,9 +2,15 @@
 
   Tomatinho! The [[https://github.com/konr/tomatinho][Emacs pomodoro timer]] now on android! https://play.google.com/store/apps/details?id=com.tomatinho_mobile
   
+* How to play with it in the browser
+
+  1. Serve the pages (lein ring server-headless 3000)
+  2. Build automatically the javascript (lein cljsbuild auto prod)
+  3. Enable the timer in the init function of core.cljs
+  
 * How to compile and run it in your phone
 
-  1. Build the .js files from the ClojureScript (lein cljs once prod)
+  1. Build the .js files from the ClojureScript (lein cljsbuild once prod)
   2. Link the resources directory to the assets directory (ls -s resources/public/ android/assets/www/)
   3. Go to the android directory (cd android)
   4. Plug your device, making sure you have:
